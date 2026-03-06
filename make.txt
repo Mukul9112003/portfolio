@@ -1,0 +1,16 @@
+portfolio
+│
+├── app.py
+├── Resume.pdf
+│
+└── assets
+    ├── salary_architecture.png
+    ├── salary_model_performance.png
+    ├── mlflow_salary.png
+    ├── salary_dashboard.png
+    ├── recommender_architecture.png
+    ├── recommendation_metrics.png
+    ├── mlflow_recommendation.png
+    ├── churn_architecture.png
+    ├── churn_model_performance.png
+    └── shap_visualization.png
