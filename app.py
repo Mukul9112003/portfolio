@@ -370,6 +370,11 @@ This imbalance can cause machine learning models to ignore the minority class.
     st.write("Architecture diagram will be added here.")
 
     st.image("assets/churn_architecture.png")
+    st.subheader("MLflow Experiment Tracking")
+
+    st.write("Screenshots of model comparison experiments will be added here.")
+
+    st.image("assets/mlflow_churn.png")
 
     st.subheader("Model Performance")
 
