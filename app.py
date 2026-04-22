@@ -338,67 +338,103 @@ The application is containerized using Docker.
 # ================= CHURN =================
 elif page == "Telecom Churn Prediction":
 
-    st.title("Telecom Customer Churn Prediction System")
+    st.title("📊 Customer Churn Prediction System")
+    st.markdown("End-to-End Machine Learning Project with MLOps (MLflow + Docker + AWS)")
+
+    # ================= OVERVIEW =================
+    st.header("📌 Overview")
+    st.write("""
+    This project predicts whether a telecom customer is likely to churn or not.  
+    The goal is to help businesses reduce customer loss by identifying high-risk users in advance.
+
+    The project is built using an end-to-end MLOps pipeline, including:
+    - Data ingestion and validation
+    - Feature engineering
+    - Model training and evaluation
+    - Experiment tracking using MLflow
+    - Deployment using Streamlit and Docker
+    - Cloud deployment on AWS EC2
+    """)
+
+    # ================= FEATURES =================
+    st.header("⭐ Key Features")
+    st.markdown("""
+    - ✔ End-to-end ML pipeline
+    - ✔ Multiple model training & comparison
+    - ✔ MLflow experiment tracking
+    - ✔ Docker containerization
+    - ✔ Streamlit interactive UI
+    - ✔ AWS deployment (EC2)
+    """)
+
+    # ================= SYSTEM ARCHITECTURE =================
+    st.header(" System Architecture")
+
+    st.image("assets/churn_architecture.png", use_column_width=True)
 
     st.write("""
-This project predicts which telecom customers are likely to leave a service provider.
-Customer churn prediction helps companies identify high-risk customers and take
-preventive action.
-""")
+    Pipeline Flow:
+    1. Data is collected from telecom dataset
+    2. Data preprocessing & feature engineering applied
+    3. Multiple ML models are trained
+    4. MLflow tracks experiments (metrics, parameters, artifacts)
+    5. Best model is selected and registered
+    6. Model is deployed using FastAPI + Streamlit
+    7. Docker container is created and deployed on AWS EC2
+    """)
 
-    st.subheader("Dataset Challenge")
+    # ================= MLFLOW =================
+    st.header("MLflow Experiment Tracking")
 
-    st.write("""
-The dataset used in this project is highly imbalanced. The number of customers who churn
-is much smaller than the number of customers who stay.
-
-This imbalance can cause machine learning models to ignore the minority class.
-""")
-
-    st.subheader("Machine Learning Pipeline")
-
-    st.write("""
-1. Data preprocessing and cleaning using Pandas.
-2. Handling class imbalance using the SMOTE technique.
-3. Training classification models including Random Forest and XGBoost.
-4. Tracking experiments using MLflow.
-5. Model explainability using SHAP.
-""")
-
-    st.subheader("System Architecture")
-
-    st.write("Architecture diagram will be added here.")
-
-    st.image("assets/churn_architecture.png")
-    st.subheader("MLflow Experiment Tracking")
-
-    st.write("Screenshots of model comparison experiments will be added here.")
-
-    st.image("assets/mlflow_churn.png")
-
-    st.subheader("Model Performance")
-
-    st.write("Performance comparison graphs will be added here.")
-
-    st.image("assets/churn_model_performance.png")
-
-    st.subheader("Model Explainability")
-
-    st.write("SHAP visualizations will be added here.")
-
-    st.image("assets/shap_visualization.png")
-
-    st.subheader("Deployment")
+    st.image("assets/mlflow_ui.png", use_column_width=True)
 
     st.write("""
-A Streamlit application was built so users can input customer information and
-receive churn predictions in real time.
+    MLflow is used to track:
+    - Model parameters
+    - Performance metrics (Accuracy, AUC)
+    - Different experiments
+    - Best model selection
 
-The system was containerized using Docker.
-""")
+    This helps in reproducibility and comparison of models.
+    """)
 
+    # ================= TECH STACK =================
+    st.header(" Tech Stack")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
+        **Languages & Libraries**
+        - Python
+        - Pandas, NumPy
+        - Scikit-learn
+        - XGBoost
+        """)
+
+    with col2:
+        st.markdown("""
+        **Tools & Deployment**
+        - MLflow
+        - Streamlit
+        - Docker
+        - AWS EC2
+        """)
+
+    # ================= PROJECT LINKS =================
+    st.header(" Project Links")
+
+    st.markdown("""
+    -  GitHub: https://github.com/Mukul9112003/portfolio  
+    -  Live App: (Add your EC2 link here)
+    """)
+
+    # ================= FOOTER =================
+    
     st.write("GitHub Repository:")
     st.write("github.com/Mukul9112003/project3_Telecom_Customer_Churn_Prediction_System")
+    st.write("---")
+    st.write("Built by Mukul Mehta")
 
 # ================= CERTIFICATIONS =================
 elif page == "Certifications":
