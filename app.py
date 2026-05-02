@@ -1,39 +1,22 @@
 import streamlit as st
-
-# ================= CONFIG =================
 st.set_page_config(
     page_title="Mukul Mehta | Machine Learning Portfolio",
     layout="wide"
 )
-
-# ================= SIDEBAR =================
 st.sidebar.image("assets/profile.jpg", width=200)
 st.sidebar.title("Mukul Mehta")
-
 st.sidebar.markdown("""
 Almora, India  
 Email: mehtamukul689@gmail.com  
 Phone: +91 6397233573
 """)
-
 st.sidebar.markdown("""
 LinkedIn: https://linkedin.com/in/mukul-mehta-574123283  
 GitHub: https://github.com/Mukul9112003  
-Portfolio: https://mukulportfolio.streamlit.app/
 """)
 
-# Resume download
-try:
-    with open("Resume.pdf", "rb") as f:
-        st.sidebar.download_button(
-            label="Download Resume",
-            data=f,
-            file_name="Mukul_Mehta_Resume.pdf"
-        )
-except:
-    st.sidebar.info("Upload Resume.pdf to enable download.")
+st.sidebar.info("Resume available below https://drive.google.com/drive/folders/1ewAghfICcgmfLWwadzk7U7MvKag5D7TZ?usp=sharing")
 
-# Navigation
 page = st.sidebar.radio(
     "Navigation",
     [
@@ -47,8 +30,6 @@ page = st.sidebar.radio(
         "Contact"
     ]
 )
-
-# ================= HOME =================
 if page == "Home":
 
     st.title("Mukul Mehta")
@@ -79,7 +60,6 @@ Data Engineering for ML
 Building APIs for Machine Learning Models
 """)
 
-# ================= SKILLS =================
 elif page == "Skills":
 
     st.title("Technical Skills")
@@ -166,187 +146,154 @@ Logging
 
     st.write("""
 Data Structures and Algorithms  
-Solved 100+ problems on LeetCode
+Solved 50+ problems on LeetCode
 """)
-
-# ================= EXPERIENCE =================
 elif page == "Experience":
-
     st.title("Experience")
-
-
-# ================= SALARY PROJECT =================
 elif page == "Salary Intelligence Platform":
-
     st.title("Salary Intelligence Platform")
-
     st.write("""
-    This project is an end-to-end machine learning system designed to analyze salary datasets
-    and predict salary ranges based on factors such as experience, job role, and industry.
+    This project is an end-to-end machine learning system designed to predict salaries
+    based on job-related features such as job title, location, company, and required skills.
 
-    The goal of the project was to build a production-style machine learning pipeline rather
-    than simply training a model inside a notebook.
+    The focus of this project is not just model building, but designing a complete
+    production-ready ML pipeline with deployment, experiment tracking, and cloud integration.
     """)
-
     st.subheader("Problem Statement")
-
     st.write("""
-    Salary data is often scattered across different platforms and is difficult to analyze
-    in a structured way. This system processes salary datasets and provides both predictions
-    and analytics to help understand compensation trends.
+    Salary information is often inconsistent and difficult to analyze across platforms.
+    This system aims to provide structured predictions and insights by leveraging machine learning,
+    enabling better understanding of compensation trends for different job roles.
     """)
-
     st.subheader("Machine Learning Pipeline")
-
     st.write("""
-    The project follows a modular architecture where each stage of the workflow is separated
-    into independent components.
-
-    1. Data ingestion and storage using a MySQL database.
-    2. Data validation to ensure dataset consistency.
-    3. Data preprocessing and feature engineering using Pandas and Scikit-learn.
-    4. Model training using ensemble algorithms such as Random Forest and XGBoost.
-    5. Experiment tracking using MLflow.
-    6. API development using FastAPI.
-    7. Containerization using Docker.
-    8. Deployment on AWS EC2.
-    9. Business analytics dashboards using Power BI.
+    The project follows a modular and scalable architecture where each stage of the pipeline
+    is handled independently.
+    1. Data ingestion from MongoDB.
+    2. Data validation to ensure schema consistency and data quality.
+    3. Data transformation and feature engineering.
+    4. Model training using XGBoost.
+    5. Model evaluation and selection of the best-performing model.
+    6. Experiment tracking using MLflow.
+    7. Model storage and versioning using AWS S3.
+    8. API development using FastAPI.
+    9. Containerization using Docker.
+    10. CI/CD pipeline using GitHub Actions.
+    11. Deployment on AWS EC2 using Docker containers.
     """)
-
     st.subheader("System Architecture")
-
-    st.write("Architecture diagram will be added here.")
-
+    st.write("""
+    The system is designed as an end-to-end MLOps pipeline integrating data, model lifecycle,
+    and deployment in a production environment.
+    """)
     st.image("assets/salary_architecture.png")
-
     st.subheader("Model Performance")
-
-    st.write("Performance comparison charts will be added here.")
-
+    st.write("""
+    The model performance is evaluated using appropriate metrics and tracked across experiments
+    to ensure reproducibility and improvement over time.
+    """)
     st.image("assets/salary_model_performance.png")
-
     st.subheader("MLflow Experiment Tracking")
-
-    st.write("Screenshots of experiment runs will be added here.")
-
+    st.write("""
+    MLflow is used to track experiments, including parameters, metrics, and model versions,
+    enabling systematic comparison and model selection.
+    """)
     st.image("assets/mlflow_salary.png")
-
-    st.subheader("Power BI Dashboard")
-
-    st.write("Screenshots of dashboards showing salary insights will be added here.")
-
-    st.image("assets/salary_dashboard.png")
-
+    st.subheader("Cloud Integration")
+    st.image("assets/salary_ci.png")
+    st.image("assets/salary_ci.png")
+    st.write("""
+    - AWS S3 is used for storing trained models.
+    - AWS ECR is used to store Docker images.
+    - AWS EC2 is used for hosting the FastAPI application.
+    """)
+    st.image("assets/salary_s3_bucket.png")
+    st.image("assets/salary_fastapi_1.png")
+    st.image("assets/salary_fastapi_2.png")
+    st.image("assets/salary_ec2.png")
+    st.image("assets/salary_ecr.png")
     st.subheader("Technologies Used")
-
     st.write("""
     Python  
     Pandas  
     Scikit-learn  
-    Random Forest  
     XGBoost  
     MLflow  
     FastAPI  
     Docker  
-    MySQL  
-    Power BI  
+    MongoDB  
+    AWS S3  
     AWS EC2  
-    GitHub Actions
+    AWS ECR  
+    GitHub Actions  
     """)
-
+    st.link_button("Watch Full Demo", "https://drive.google.com/file/d/1GaczRkUPAstKR3wBWCJUwjJqzqHB4RHR/view?usp=sharing")
+    st.write("Quick preview:")
     st.write("GitHub Repository:")
-    st.write("github.com/Mukul9112003/project1_Salary_Intelligence_Platform")
-
-# ================= RECOMMENDER =================
+    st.write("https://github.com/Mukul9112003/Project2_Salary_Intelligence_Platform")
 elif page == "Hybrid Movie Recommendation System":
 
     st.title("Hybrid Movie Recommendation System")
 
     st.write("""
-This project implements a hybrid recommendation system that combines collaborative
-filtering and content-based filtering to generate personalized movie recommendations.
+This project is a Hybrid Movie Recommendation System that combines Collaborative Filtering 
+and Content-Based Filtering to provide personalized movie suggestions.
+The system first identifies similar users and movies using collaborative filtering, 
+and then refines the recommendations using content-based techniques based on movie metadata.
 """)
 
     st.subheader("Problem Statement")
 
     st.write("""
-Traditional recommendation systems often rely on a single technique, which can lead
-to poor recommendations when data is sparse. The goal of this project was to combine
-multiple approaches to improve recommendation quality.
+Traditional recommendation systems struggle with cold-start and sparse data problems. 
+This project aims to improve recommendation accuracy by combining multiple techniques 
+into a hybrid approach.
 """)
 
-    st.subheader("Recommendation Architecture")
+    st.subheader("Approach")
 
     st.write("""
-The recommendation system follows a two-stage approach.
+• Collaborative Filtering is used to generate initial movie recommendations based on user behavior.
 
-Stage 1: Candidate generation using collaborative filtering.
+• Content-Based Filtering (TF-IDF) is applied to analyze movie features such as genres, keywords, and descriptions.
 
-Stage 2: Content-based filtering using TF-IDF to analyze movie metadata.
-
-Stage 3: Ranking models such as Logistic Regression and Support Vector Machine
-determine the final recommendation order.
+• The final recommendations are generated by combining both approaches.
 """)
 
-    st.subheader("Recommendation Pipeline")
+    st.subheader("Pipeline")
 
     st.write("""
-1. Generate candidate movies based on user similarity.
-2. Transform movie descriptions using TF-IDF vectorization.
-3. Calculate similarity between movies.
-4. Apply ranking models to select the best recommendations.
-5. Track experiments using MLflow.
+1. User-item interaction data is used for collaborative filtering.
+2. Movie metadata is processed using TF-IDF vectorization.
+3. Similarity scores are computed.
+4. Results from both methods are combined to produce final recommendations.
 """)
 
-    st.subheader("System Architecture")
-
-    st.write("Architecture diagram will be added here.")
-
-    st.image("assets/recommender_architecture.png")
-
-    st.subheader("Evaluation Metrics")
+    st.subheader("Technologies Used")
 
     st.write("""
-Precision@K  
-Recall@K  
-NDCG@K
+• Python  
+• Pandas, NumPy  
+• Scikit-learn  
+• Streamlit  
 """)
-
-    st.write("Evaluation graphs will be added here.")
-
-    st.image("assets/recommendation_metrics.png")
-
-    st.subheader("MLflow Experiment Tracking")
-
-    st.write("Screenshots of model comparison experiments will be added here.")
-
-    st.image("assets/mlflow_recommendation.png")
-
-    st.subheader("Deployment")
+    
 
     st.write("""
-The recommendation system is exposed through a FastAPI service that returns
-real-time movie recommendations. A Streamlit interface allows users to interact
-with the system.
-
-The application is containerized using Docker.
+The application is deployed using Streamlit, providing an interactive interface 
+for users to get movie recommendations.
 """)
 
-    st.write("GitHub Repository:")
-    st.write("github.com/Mukul9112003/Project2_Hybrid_Movie_Recommendation_System")
+    st.subheader("GitHub Repository")
 
-# ================= CHURN =================
+    st.write("https://github.com/Mukul9112003/Project2_Hybrid_Movie_Recommendation_System")
 elif page == "Telecom Churn Prediction":
-
-    st.title("📊 Customer Churn Prediction System")
+    st.title(" Customer Churn Prediction System")
     st.markdown("End-to-End Machine Learning Project with MLOps (MLflow + Docker + AWS)")
-
-    # ================= OVERVIEW =================
-    st.header("📌 Overview")
+    st.header(" Overview")
     st.write("""
     This project predicts whether a telecom customer is likely to churn or not.  
     The goal is to help businesses reduce customer loss by identifying high-risk users in advance.
-
     The project is built using an end-to-end MLOps pipeline, including:
     - Data ingestion and validation
     - Feature engineering
@@ -355,9 +302,7 @@ elif page == "Telecom Churn Prediction":
     - Deployment using Streamlit and Docker
     - Cloud deployment on AWS EC2
     """)
-
-    # ================= FEATURES =================
-    st.header("⭐ Key Features")
+    st.header(" Key Features")
     st.markdown("""
     - ✔ End-to-end ML pipeline
     - ✔ Multiple model training & comparison
@@ -366,12 +311,8 @@ elif page == "Telecom Churn Prediction":
     - ✔ Streamlit interactive UI
     - ✔ AWS deployment (EC2)
     """)
-
-    # ================= SYSTEM ARCHITECTURE =================
     st.header(" System Architecture")
-
     st.image("assets/churn_architecture.png", use_column_width=True)
-
     st.write("""
     Pipeline Flow:
     1. Data is collected from telecom dataset
@@ -382,12 +323,8 @@ elif page == "Telecom Churn Prediction":
     6. Model is deployed using FastAPI + Streamlit
     7. Docker container is created and deployed on AWS EC2
     """)
-
-    # ================= MLFLOW =================
     st.header("MLflow Experiment Tracking")
-
     st.image("assets/mlflow_ui.png", use_column_width=True)
-
     st.write("""
     MLflow is used to track:
     - Model parameters
@@ -397,8 +334,6 @@ elif page == "Telecom Churn Prediction":
 
     This helps in reproducibility and comparison of models.
     """)
-
-    # ================= TECH STACK =================
     st.header(" Tech Stack")
 
     col1, col2 = st.columns(2)
@@ -420,22 +355,18 @@ elif page == "Telecom Churn Prediction":
         - Docker
         - AWS EC2
         """)
-
-    # ================= PROJECT LINKS =================
+    st.image("assets/churn_s3_bucket.png")
+    st.image("assets/churn_fastapi_1.png")
+    st.image("assets/churn_fastapi_2.png")
+    st.image("assets/churn_ec2.png")
+    st.image("assets/churn_ecr.png")
+    st.subheader("Deployment")
     st.header(" Project Links")
-
-    st.markdown("""
-    -  GitHub: https://github.com/Mukul9112003/portfolio  
-    -  Live App: (Add your EC2 link here)
-    """)
-
-    # ================= FOOTER =================
-    
+    st.link_button("Watch Full Demo", "https://drive.google.com/file/d/1yFc5TUNCdXmk6RX3oQ0br4kHKk2K87Qb/view?usp=sharing")
     st.write("GitHub Repository:")
-    st.write("github.com/Mukul9112003/project3_Telecom_Customer_Churn_Prediction_System")
+    st.write("https://github.com/Mukul9112003/Project3_Telecom_Customer_Churn_Prediction_System-")
     st.write("---")
     st.write("Built by Mukul Mehta")
-
 # ================= CERTIFICATIONS =================
 elif page == "Certifications":
 
@@ -445,12 +376,11 @@ elif page == "Certifications":
 Supervised Machine Learning: Regression and Classification  
 Coursera
 """)
-
+    st.info("Certifications available https://drive.google.com/drive/folders/1ewAghfICcgmfLWwadzk7U7MvKag5D7TZ?usp=sharing")
     st.write("""
 CS50's Introduction to Programming with Python  
 Harvard University
 """)
-
 # ================= CONTACT =================
 elif page == "Contact":
 
@@ -470,6 +400,5 @@ GitHub:
 https://github.com/Mukul9112003
 """)
 
-# ================= FOOTER =================
 st.write("---")
 st.write("© Mukul Mehta")
